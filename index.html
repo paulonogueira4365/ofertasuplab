@@ -3,207 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hybrid Vision | Exclusividade Uplab Laboratory</title>
+    <title>Hybrid Vision | Uplab Laboratory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --orange: #FF6B00; --dark: #050505; }
+        :root { --orange: #FF6B00; --dark: #050505; --zinc-800: #27272a; }
         body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
-        .btn-main { background: var(--orange); box-shadow: 0 0 30px rgba(255, 107, 0, 0.3); transition: 0.3s; cursor: pointer; text-align: center; }
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 107, 0, 0.5); }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 32px; }
+        .btn-main { background: var(--orange); box-shadow: 0 0 40px rgba(255, 107, 0, 0.3); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; text-align: center; border: none; }
+        .btn-main:hover { transform: scale(1.03) translateY(-5px); box-shadow: 0 0 60px rgba(255, 107, 0, 0.5); }
         
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .blink { animation: blink 1s infinite; }
+        .video-container { position: relative; width: 100%; max-width: 1000px; margin: 0 auto; }
+        .video-border { position: relative; border-radius: 40px; padding: 2px; background: linear-gradient(135deg, var(--orange), transparent, var(--orange)); box-shadow: 0 0 100px rgba(255,107,0,0.2); }
         
-        .floating-notif { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 10px 20px; border-radius: 50px; font-weight: 900; font-size: 12px; display: none; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        #floating-alert { position: fixed; bottom: 30px; left: -400px; background: white; color: black; padding: 15px 25px; border-radius: 0 20px 20px 0; transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 1000; box-shadow: 10px 10px 40px rgba(0,0,0,0.5); border-left: 5px solid var(--orange); }
+        #floating-alert.active { left: 0; }
         
-        .animate-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        #admin-panel { display: none; position: fixed; top: 0; right: 0; width: 400px; height: 100vh; background: #fff; color: #000; z-index: 5000; padding: 40px 20px; overflow-y: auto; box-shadow: -20px 0 60px rgba(0,0,0,0.8); border-left: 4px solid var(--orange); }
+        .section-tag { font-size: 10px; font-weight: 900; color: var(--orange); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 1rem; display: block; }
+        .blink-vagas { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body class="antialiased">
 
-    <div id="notif" class="floating-notif">🚀 <span id="notif-text"></span></div>
-
-    <div class="fixed top-0 w-full z-[100] bg-red-600 text-white py-2 text-center text-[10px] font-black uppercase tracking-[0.2em]">
-        🔥 ÚLTIMAS <span id="vagas-count" class="blink">--</span> VAGAS: BÔNUS DE VOUCHER VÁLIDO ATÉ 30/04
+    <div class="fixed top-0 w-full z-[100] bg-orange-600 text-white py-3 text-center text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl">
+        🚨 EXCLUSIVIDADE REGIONAL: RESTAM APENAS <span id="vagas-count" class="bg-white text-orange-600 px-3 py-1 rounded-full mx-2 text-sm inline-block blink-vagas">--</span> VAGAS NO LOTE ATUAL
     </div>
 
-    <section class="relative pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="animate-in">
-                <img src="logo-uplab-estatica.jpg" class="h-12 mb-8 grayscale brightness-200">
-                <h1 class="font-orbitron font-900 text-4xl md:text-6xl italic leading-none mb-6">
-                    A EVOLUÇÃO CHEGOU NO <span class="text-orange-600">BALCÃO.</span>
-                </h1>
-                <p class="text-zinc-400 text-lg md:text-xl font-bold mb-8 leading-relaxed">
-                    A tecnologia <span class="text-white italic">HybridVision</span> permite 1.728 combinações independentes para superar qualquer multifocal do mercado.
-                </p>
-                <a href="#contato" class="btn-main px-8 py-5 rounded-xl font-orbitron font-900 text-lg italic uppercase inline-block">Quero os 12 Vouchers</a>
+    <section class="relative pt-48 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <img src="logo-uplab-estatica.jpg" class="h-10 mb-8 grayscale brightness-200 opacity-60 mx-auto">
+            <span class="section-tag">A Revolução Óptica 2026</span>
+            <h1 class="font-orbitron font-900 text-5xl md:text-8xl italic leading-none mb-8">
+                TECNOLOGIA <span class="text-orange-600">HYBRID.</span>
+            </h1>
+            
+            <div class="video-container mb-16">
+                <div class="video-border">
+                    <div class="rounded-[38px] overflow-hidden bg-zinc-900 shadow-2xl">
+                        <video autoplay muted loop playsinline class="w-full scale-[1.01]">
+                            <source src="VIDEO COMPLETO S AUDIO.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 glass p-6 border-orange-600/30 hidden md:block">
+                    <p class="text-[10px] font-black uppercase text-orange-500 mb-1">Realidade Virtual</p>
+                    <p class="font-bold text-xs">Mapeamento em 3 zonas independentes</p>
+                </div>
             </div>
-            <div class="relative animate-in" style="animation-delay: 0.2s">
-                <img src="GIF HYBRID.gif" class="w-full rounded-3xl shadow-2xl border border-white/10">
+
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                <a href="#contato" class="btn-main px-16 py-8 rounded-2xl font-orbitron font-900 text-2xl italic uppercase">Ativar Exclusividade</a>
+                <div class="text-left border-l border-zinc-800 pl-6">
+                    <div class="text-orange-600 font-orbitron font-900 text-4xl italic">30 DIAS</div>
+                    <div class="text-[10px] uppercase font-black text-zinc-500">Para o primeiro boleto</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 bg-zinc-950/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-orbitron text-3xl md:text-5xl text-center mb-16 italic uppercase">A Evolução dos <span class="text-orange-600">Multifocais</span></h2>
-            <div class="space-y-8">
-                <div class="glass p-6 opacity-40">
-                    <span class="text-orange-600 font-black">1951</span>
-                    <h3 class="text-xl font-black uppercase">Convencionais</h3>
-                    <p class="text-sm">Tecnologia analógica de moldes fixos.</p>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-orbitron text-4xl md:text-5xl font-900 italic uppercase">Experiência <span class="text-orange-600">Unboxing</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass p-4 group">
+                    <div class="overflow-hidden rounded-2xl h-64 mb-6"><img src="foto da caixa 1.png" class="w-full h-full object-cover"></div>
+                    <h3 class="font-black uppercase italic mb-2">CAIXA PERSONALIZADA HYBRID</h3>
                 </div>
-                <div class="glass p-6 opacity-40">
-                    <span class="text-orange-600 font-black">1998</span>
-                    <h3 class="text-xl font-black uppercase">Freeform Digital</h3>
-                    <p class="text-sm">Desenhos integrados e engessados há mais de 20 anos.</p>
+                <div class="glass p-4 group">
+                    <div class="overflow-hidden rounded-2xl h-64 mb-6"><img src="certificado-pvc.png" class="w-full h-full object-cover"></div>
+                    <h3 class="font-black uppercase italic mb-2">CERTIFICADO EM PERSONALIZADO</h3>
                 </div>
-                <div class="glass p-8 border-l-4 border-orange-600 bg-orange-600/5">
-                    <span class="text-orange-600 font-black">2021 - HOJE</span>
-                    <h3 class="text-2xl font-black uppercase text-white">TECNOLOGIA HYBRID</h3>
-                    <p class="text-zinc-300 font-bold leading-relaxed">Divisão da lente em 3 partes independentes. O mapeamento visual via Tablet ou VR cria a lente perfeita para o estilo de vida do usuário.</p>
+                <div class="glass p-4 group">
+                    <div class="overflow-hidden rounded-2xl h-64 mb-6"><img src="flanela.png" class="w-full h-full object-cover"></div>
+                    <h3 class="font-black uppercase italic mb-2">FLANELA DE LIMPEZA HYBRID</h3>
+                </div>
+                <div class="glass p-4 group">
+                    <div class="overflow-hidden rounded-2xl h-64 mb-6"><img src="TELA-HYBRID.png" class="w-full h-full object-cover"></div>
+                    <h3 class="font-black uppercase italic mb-2">Software de Venda</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto glass p-8 md:p-16 border-orange-600/20">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="order-2 md:order-1">
-                    <img src="TABLET.webp" class="w-full drop-shadow-[0_0_50px_rgba(255,107,0,0.2)]">
-                    <div class="mt-8 grid grid-cols-2 gap-4">
-                        <div class="text-center p-4 bg-white/5 rounded-xl">
-                            <p class="text-[10px] uppercase text-zinc-500 font-black">Mercado Livre</p>
-                            <p class="text-xl font-bold line-through">R$ 900,00</p>
+        <div class="max-w-7xl mx-auto glass p-10 md:p-20 border-orange-600/20">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-orbitron text-5xl font-900 mb-8 italic uppercase leading-none">A FERRAMENTA <br><span class="text-orange-600">DO FECHAMENTO.</span></h2>
+                    <p class="text-zinc-400 font-bold text-lg mb-10 italic">Se a sua ótica não tem tablet, a Uplab facilita. Subsidiamos o hardware para parceiros.</p>
+                    <div class="flex gap-6 mb-12">
+                        <div class="bg-black p-6 rounded-3xl border border-white/5 flex-1">
+                            <p class="text-[10px] uppercase font-black text-zinc-500 mb-2">Mercado</p>
+                            <p class="text-2xl font-bold line-through opacity-50">R$ 900,00</p>
                         </div>
-                        <div class="text-center p-4 bg-orange-600/20 rounded-xl border border-orange-600/50">
-                            <p class="text-[10px] uppercase text-orange-500 font-black">Na Uplab</p>
-                            <p class="text-xl font-black">R$ 600,00</p>
+                        <div class="bg-orange-600 p-6 rounded-3xl flex-1">
+                            <p class="text-[10px] uppercase font-black text-orange-200 mb-2">Parceiro</p>
+                            <p class="text-3xl font-black italic underline">R$ 600,00</p>
                         </div>
                     </div>
-                </div>
-                <div class="order-1 md:order-2">
-                    <h2 class="font-orbitron text-4xl font-900 mb-6 uppercase italic leading-tight">TECNOLOGIA NA <br><span class="text-orange-600">PALMA DA MÃO</span></h2>
-                    <p class="text-zinc-400 font-bold mb-6 italic">Não tem Tablet Android na ótica? A Uplab subsidia o Lenovo Tab 10.1 para você não perder venda.</p>
-                    <ul class="space-y-4 font-black text-xs text-orange-500 uppercase">
-                        <li>● Demonstração visual de campos de visão</li>
-                        <li>● Comparativo de espessuras em tempo real</li>
-                        <li>● Upgrade automático de ticket médio</li>
+                    <ul class="space-y-3 text-[11px] font-black uppercase italic text-zinc-300">
+                        <li><span class="text-orange-600">▶</span> Tela 10.1'' Alta Definição</li>
+                        <li><span class="text-orange-600">▶</span> Acompanha 2 gabaritos de medidas</li>
+                        <li><span class="text-orange-600">▶</span> Comparativo de Antirreflexo</li>
                     </ul>
+                </div>
+                <div class="relative">
+                    <img src="TABLET.webp" class="w-full rotate-3">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-orange-600">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="font-orbitron text-4xl md:text-6xl font-900 mb-12 italic uppercase text-white leading-none">CONDIÇÃO <br>DE PARCEIRO</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-black/20 p-8 rounded-3xl border border-white/20 text-white">
-                    <h4 class="font-black text-xl mb-4 uppercase">Licença Mensal</h4>
-                    <p class="text-6xl font-orbitron mb-2">R$ 299</p>
-                    <p class="text-xs font-black tracking-widest opacity-70">CONTRATO DE 12 MESES</p>
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 rounded-[50px] overflow-hidden border border-white/10">
+                <div class="bg-zinc-900 p-16 text-center">
+                    <span class="text-orange-600 font-black text-xs uppercase tracking-widest">Assinatura com contrato de 12 meses</span>
+                    <div class="flex justify-center items-end gap-3 my-6">
+                        <span class="text-xl font-bold mb-4">R$</span>
+                        <span class="text-9xl font-orbitron font-900 leading-none text-white">299</span>
+                        <span class="text-zinc-500 font-black uppercase text-xs mb-4">/mês</span>
+                    </div>
+                    <p class="text-zinc-400 font-bold italic">Assinatura do sistema e suporte comercial.</p>
                 </div>
-                <div class="bg-white text-black p-8 rounded-3xl shadow-2xl">
-                    <h4 class="font-black text-xl mb-6 text-orange-600 italic underline uppercase">Pacote de Benefícios:</h4>
-                    <ul class="space-y-4 font-bold text-sm">
-                        <li>✅ 12 Vouchers  para bonificação</li>
-                        <li>✅ 10 Vouchers de 20% OFF em pedidos Hybrid</li>
-                        <li>✅ 1ª Lente de ativação 100% CORTESIA</li>
-                        <li>✅ Treinamento de conversão para o balcão</li>
-                    </ul>
+                <div class="bg-orange-600 p-16">
+                    <h3 class="text-white font-orbitron font-900 text-2xl mb-8 uppercase italic">Bônus Exclusivos:(vagas limitadas)</h3>
+                    <div class="space-y-4 text-sm font-black uppercase italic">
+                        <p>🚀 12 Vouchers p/ pedidos (1 por mês) -> (NÃO BONIFICA LENTES 1,67 TRANSITION E TODA FAMILIA 1,74)</p>
+                        <p>🎁 1ª Lente Hybrid 100% CORTESIA</p>
+                        <p>📉 10 Vouchers de 20% OFF extras</p>
+                        <p class="underline">🗓️ CARÊNCIA: 1º Boleto para 30 dias</p>
+                    </div>
                 </div>
             </div>
-            <p class="mt-12 text-[10px] font-black uppercase text-white/60 tracking-[0.2em]">*Consulte regras para 1.67 Transitions e família 1.74</p>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-zinc-900/30">
+    <section class="py-24 px-6 bg-zinc-950/30">
         <div class="max-w-7xl mx-auto">
-            <h3 class="font-orbitron text-center text-xl mb-12 opacity-50 uppercase italic tracking-widest italic">Ecossistema Hybrid: Óticas Habilitadas</h3>
-            <div id="gridOticas" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                </div>
+            <h3 class="font-orbitron text-center text-xl mb-16 opacity-40 uppercase italic tracking-[0.4em]">Parceiros Credenciados</h3>
+            <div id="gridOticas" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
         </div>
     </section>
 
-    <section id="contato" class="py-24 px-6 bg-white text-black">
-        <div class="max-w-4xl mx-auto text-center mb-12">
-            <h2 class="font-orbitron font-900 text-4xl mb-4 italic uppercase">SOLICITAR HABILITAÇÃO</h2>
-            <p class="font-bold text-zinc-500 uppercase text-xs tracking-widest">Preencha para receber o contato do comercial Uplab</p>
-        </div>
-        <div class="max-w-2xl mx-auto">
-            <form id="hybridForm" class="space-y-4">
-                <input type="text" id="nome" placeholder="Seu Nome / Cargo" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
-                <input type="text" id="otica" placeholder="Nome da Ótica" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
-                <input type="tel" id="whatsapp" placeholder="WhatsApp (DDD)" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
-                <button type="submit" class="w-full bg-orange-600 text-white font-orbitron font-900 py-6 rounded-xl text-2xl uppercase italic btn-main">Garantir Minha Vaga</button>
-            </form>
-        </div>
+    <section id="contato" class="py-32 px-6 bg-white text-black text-center">
+        <h2 class="font-orbitron font-900 text-6xl mb-6 italic uppercase leading-none text-orange-600">ATIVAR AGORA</h2>
+        <form id="hybridForm" class="max-w-2xl mx-auto grid grid-cols-1 gap-4">
+            <input type="text" id="nome" placeholder="Seu Nome e Cargo" required class="p-6 rounded-2xl bg-zinc-100 outline-none font-bold text-lg border-2 border-transparent focus:border-orange-600">
+            <input type="text" id="otica" placeholder="Nome Fantasia da Ótica" required class="p-6 rounded-2xl bg-zinc-100 outline-none font-bold text-lg border-2 border-transparent focus:border-orange-600">
+            <input type="tel" id="whatsapp" placeholder="WhatsApp Comercial" required class="p-6 rounded-2xl bg-zinc-100 outline-none font-bold text-lg border-2 border-transparent focus:border-orange-600">
+            <button type="submit" class="btn-main text-white font-orbitron font-900 py-8 rounded-2xl text-3xl uppercase italic">Garantir Minha Vaga</button>
+        </form>
     </section>
 
-    <footer class="py-12 text-center opacity-30 text-[9px] font-black uppercase tracking-[0.5em]">
-        UPLAB LABORATORY • CNPJ 12.345.678/0001-00 • CURITIBA-PR
-    </footer>
+    <div id="floating-alert">
+        <div class="flex items-center gap-4">
+            <div class="bg-orange-600 text-white p-2 rounded-lg">🔥</div>
+            <div id="alert-text" class="font-bold text-sm">Ótica Ativada...</div>
+        </div>
+    </div>
+
+    <div id="admin-panel">
+        <h2 class="font-orbitron text-xl font-900 mb-6">ADMIN HYBRID</h2>
+        <input type="number" id="edit-vagas" class="w-full p-4 bg-zinc-100 rounded-xl mb-4" placeholder="Vagas">
+        <input type="text" id="add-otica" placeholder="Ótica" class="w-full p-4 bg-zinc-100 rounded-xl mb-2">
+        <input type="text" id="add-cidade" placeholder="Cidade" class="w-full p-4 bg-zinc-100 rounded-xl mb-4">
+        <button onclick="adicionarVendaManual()" class="w-full bg-orange-600 text-white p-4 rounded-xl font-black mb-4">INJETAR</button>
+        <div id="admin-list" class="max-h-40 overflow-auto mb-4 text-xs font-bold"></div>
+        <button onclick="gerarCodigoJSON()" class="w-full bg-black text-white p-4 rounded-xl font-black mb-2">GERAR JSON</button>
+        <button onclick="document.getElementById('admin-panel').style.display='none'" class="w-full border p-4 rounded-xl">FECHAR</button>
+    </div>
 
     <script>
+        let dadosLocais = { "vagas_restantes": 20, "vendas": [] };
+
         async function carregarDados() {
             try {
-                // Busca o arquivo JSON real no seu repositório
-                const response = await fetch('dados.json');
-                const dados = await response.json();
-                
-                // Atualiza vagas
-                document.getElementById('vagas-count').innerText = dados.vagas_restantes;
-
-                // Alimenta o Grid de Óticas (Prova Real)
-                const grid = document.getElementById('gridOticas');
-                grid.innerHTML = '';
-                dados.vendas.forEach(v => {
-                    grid.innerHTML += `
-                        <div class="glass !bg-zinc-800/40 p-5 text-center rounded-2xl border border-white/5 animate-in">
-                            <p class="font-black text-[11px] uppercase text-orange-500 mb-1">${v.otica}</p>
-                            <p class="text-[9px] opacity-60 font-bold uppercase">${v.cidade} - ${v.estado}</p>
-                            <p class="text-[8px] opacity-30 mt-2 font-medium italic">Ativado em: ${v.data}</p>
-                        </div>
-                    `;
-                });
-
-                // Notificação Flutuante da última venda
-                const ultimaVenda = dados.vendas[0];
-                if(ultimaVenda) {
-                    const notif = document.getElementById('notif');
-                    document.getElementById('notif-text').innerText = `${ultimaVenda.otica} (${ultimaVenda.cidade}) acaba de assinar!`;
-                    setTimeout(() => {
-                        notif.style.display = 'block';
-                    }, 4000);
+                const response = await fetch('dados.json?v=' + Date.now());
+                if(response.ok) {
+                    dadosLocais = await response.json();
                 }
-
-            } catch (e) {
-                console.error("Erro ao ler dados.json. Verifique se o arquivo existe na raiz.", e);
-            }
+                renderizarSite();
+            } catch (e) { renderizarSite(); }
         }
 
-        // Envio do WhatsApp
+        function renderizarSite() {
+            document.getElementById('vagas-count').innerText = dadosLocais.vagas_restantes;
+            document.getElementById('edit-vagas').value = dadosLocais.vagas_restantes;
+            
+            const grid = document.getElementById('gridOticas');
+            grid.innerHTML = '';
+            dadosLocais.vendas.forEach((v, index) => {
+                grid.innerHTML += `<div class="glass p-6 text-center">
+                    <p class="font-black text-xs uppercase text-orange-500">${v.otica}</p>
+                    <p class="text-[9px] opacity-60 uppercase font-black">${v.cidade}</p>
+                </div>`;
+            });
+
+            const adminList = document.getElementById('admin-list');
+            adminList.innerHTML = '';
+            dadosLocais.vendas.forEach((v, index) => {
+                adminList.innerHTML += `<div class="p-2 border-b flex justify-between"><span>${v.otica}</span> <button onclick="removerOtica(${index})" class="text-red-500">X</button></div>`;
+            });
+        }
+
+        function mostrarAlerta(nome, cidade) {
+            const el = document.getElementById('floating-alert');
+            document.getElementById('alert-text').innerText = `${nome} (${cidade})`;
+            el.classList.add('active');
+            setTimeout(() => el.classList.remove('active'), 5000);
+        }
+
+        function iniciarNotificacoes() {
+            setInterval(() => {
+                if(dadosLocais.vendas.length > 0) {
+                    const sorteada = dadosLocais.vendas[Math.floor(Math.random() * dadosLocais.vendas.length)];
+                    mostrarAlerta(sorteada.otica, sorteada.cidade);
+                }
+            }, 15000);
+        }
+
+        window.addEventListener('keydown', (e) => { if (e.altKey && e.key === 'a') { const p = document.getElementById('admin-panel'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } });
+
+        function adicionarVendaManual() {
+            const o = document.getElementById('add-otica').value;
+            const c = document.getElementById('add-cidade').value;
+            if(!o || !c) return alert("Preencha tudo");
+            dadosLocais.vendas.unshift({ "otica": o, "cidade": c });
+            renderizarSite();
+            mostrarAlerta(o, c);
+        }
+
+        function removerOtica(index) { dadosLocais.vendas.splice(index, 1); renderizarSite(); }
+
+        function gerarCodigoJSON() {
+            dadosLocais.vagas_restantes = parseInt(document.getElementById('edit-vagas').value);
+            console.log(JSON.stringify(dadosLocais, null, 2));
+            alert("JSON no Console (F12)");
+        }
+
         document.getElementById('hybridForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const n = document.getElementById('nome').value;
-            const o = document.getElementById('otica').value;
-            const w = document.getElementById('whatsapp').value;
-            const msg = `Olá! Vi que restam poucas vagas para o HybridVision e quero habilitar minha ótica.%0A%0A*Ótica:* ${o}%0A*Responsável:* ${n}%0A*WhatsApp:* ${w}`;
+            const msg = `Olá Paulo! Quero ativar a licença Hybrid na minha ótica e garantir o tablet.%0A%0A*Ótica:* ${document.getElementById('otica').value}`;
             window.location.href = `https://wa.me/554174003872?text=${msg}`;
         });
 
-        // Inicia a carga dos dados reais
         carregarDados();
+        iniciarNotificacoes();
     </script>
 </body>
 </html>

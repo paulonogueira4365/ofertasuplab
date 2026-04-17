@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Vision | A Decisão que Muda sua Ótica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --hybrid-orange: #FF6B00; --hybrid-dark: #050505; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--hybrid-dark); color: #fff; scroll-behavior: smooth; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .text-gradient { background: linear-gradient(to right, #fff, var(--hybrid-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .orange-glow { box-shadow: 0 0 40px rgba(255, 107, 0, 0.1); }
+        
+        @keyframes pulse-red { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.7; transform: scale(1.05); } }
+        .pulse-urgency { animation: pulse-red 2s infinite; }
+        
+        .floating { animation: float 5s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-15px) rotate(1deg); } }
+
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; color: #fff; width: 100%; transition: all 0.3s; }
+        .input-premium:focus { border-color: var(--hybrid-orange); outline: none; background: rgba(255,255,255,0.08); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- BARRA DE URGÊNCIA REAL -->
+    <div class="fixed top-0 w-full z-[100] bg-red-600 text-white py-2 px-4 text-center text-[10px] font-black uppercase tracking-[0.2em]">
+        ⚠️ Atenção: <span id="vagas-count" class="pulse-urgency">20</span> vagas restantes para ativação imediata (Válido até 30/04)
+    </div>
+
+    <!-- HERO: A DOR -->
+    <section class="relative pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="font-orbitron font-900 text-4xl md:text-6xl italic leading-none uppercase mb-8">
+                SUA ÓTICA ESTÁ <span class="text-red-600">MORRENDO</span><br>
+                NO PASSADO?
+            </h1>
+            <p class="text-zinc-400 text-lg md:text-xl font-bold max-w-3xl mx-auto leading-relaxed mb-12">
+                Enquanto você tenta convencer o cliente com tabelas de papel, ele já está pesquisando no Google por <span class="text-white">experiência e tecnologia</span>. Se você não entrega o futuro, você é apenas "mais uma" ótica de bairro.
+            </p>
+            
+            <div class="relative max-w-4xl mx-auto rounded-[32px] overflow-hidden border border-orange-600/30 orange-glow shadow-2xl">
+                <video autoplay muted loop playsinline class="w-full">
+                    <source src="VIDEO COMPLETO S AUDIO.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                    <p class="text-white font-900 italic uppercase text-sm md:text-xl">O Sistema que transforma o balcão em um laboratório de precisão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÃO: O PORQUÊ DO HYBRID -->
+    <section class="py-24 px-6 bg-zinc-950/50">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative order-2 md:order-1">
+                <img src="TELA-HYBRID.png" class="w-full floating drop-shadow-[0_30px_60px_rgba(255,107,0,0.15)]">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="font-orbitron font-900 text-3xl md:text-5xl italic uppercase leading-none mb-8">
+                    POR QUE ASSINAR <span class="text-orange-600">O HYBRID HOJE?</span>
+                </h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">🎯</div>
+                        <div>
+                            <h3 class="font-900 uppercase italic text-lg mb-2">Diferenciação Instantânea</h3>
+                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">O cliente vê a lente sendo construída na frente dele. Isso gera confiança e justifica o ticket médio alto.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">💎</div>
+                        <div>
+                            <h3 class="font-900 uppercase italic text-lg mb-2">O Voucher que Paga a Conta</h3>
+                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">Cada pedido bonificado paga sua mensalidade. O investimento é irrisório perto do faturamento que ele gera.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">📊</div>
+                        <div>
+                            <h3 class="font-900 uppercase italic text-lg mb-2">Lucro Real e Transparente</h3>
+                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">Trabalhe com margens de 178% ou mais. Entregue luxo, receba como luxo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESEJO: A ENTREGA -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-orbitron font-900 text-3xl md:text-5xl italic uppercase mb-16">NÃO É SÓ SOFTWARE,<br><span class="text-orange-600">É UM RITUAL DE LUXO.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
+                    <img src="foto da caixa 1.png" class="h-40 mx-auto mb-6 object-contain">
+                    <h4 class="font-900 uppercase italic mb-2">Box Premium</h4>
+                    <p class="text-zinc-500 text-xs font-bold">O impacto visual começa na entrega.</p>
+                </div>
+                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
+                    <img src="certificado-pvc.png" class="h-40 mx-auto mb-6 object-contain">
+                    <h4 class="font-900 uppercase italic mb-2">Certificado PVC</h4>
+                    <p class="text-zinc-500 text-xs font-bold">Garantia que o cliente guarda na carteira.</p>
+                </div>
+                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
+                    <img src="flanela.png" class="h-40 mx-auto mb-6 object-contain">
+                    <h4 class="font-900 uppercase italic mb-2">Flanela Hybrid</h4>
+                    <p class="text-zinc-500 text-xs font-bold">O toque final de exclusividade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONVERSÃO -->
+    <section id="form-sessao" class="py-24 px-6 bg-white text-black">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-orbitron font-900 text-4xl italic uppercase leading-none mb-6">ÚLTIMAS <span class="text-orange-600">5 VAGAS</span></h2>
+                <p class="text-zinc-600 font-bold text-lg mb-8">Com a condição especial: <br><span class="text-black font-900">ASSINE HOJE E PAGUE EM 30 DIAS.</span></p>
+                <div class="space-y-4">
+                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> 12 Vouchers Bonificados</p>
+                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> 01 Par de Lentes na Adesão</p>
+                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> Tablet Lenovo 10.1" (Opcional)</p>
+                </div>
+            </div>
+            
+            <div class="bg-zinc-50 p-8 rounded-[32px] border border-zinc-200 shadow-2xl">
+                <h3 class="text-center font-900 uppercase italic mb-8">Garanta sua Vaga Agora</h3>
+                <form id="hybridForm" class="space-y-4">
+                    <input type="text" id="nome" placeholder="Seu Nome Completo" required class="input-premium !text-black !bg-white !border-zinc-200">
+                    <input type="text" id="otica" placeholder="Nome da sua Ótica" required class="input-premium !text-black !bg-white !border-zinc-200">
+                    <input type="tel" id="whatsapp" placeholder="Seu WhatsApp (com DDD)" required class="input-premium !text-black !bg-white !border-zinc-200">
+                    
+                    <button type="submit" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-orbitron font-900 py-5 rounded-xl text-xl uppercase italic tracking-widest transition-all shadow-xl hover:scale-[1.02] active:scale-95">
+                        QUERO SER HYBRID
+                    </button>
+                    <p class="text-center text-[9px] text-zinc-400 font-bold uppercase mt-4">Ao clicar, você será direcionado para o atendimento prioritário.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 text-center opacity-40">
+        <img src="LOGO-HYBRID-ESTATICO.png" class="h-4 mx-auto mb-6 grayscale brightness-0 invert">
+        <p class="text-[9px] font-black uppercase tracking-[0.4em] italic">Hybrid Vision © 2026 • Tecnologia Alemã • Curitiba-PR</p>
+    </footer>
+
+    <script>
+        // Simulação de contador de vagas dinâmico
+        let vagas = 20;
+        const countEl = document.getElementById('vagas-count');
+        
+        setInterval(() => {
+            if (vagas > 5 && Math.random() > 0.8) {
+                vagas--;
+                countEl.innerText = vagas;
+                if(vagas <= 5) countEl.classList.add('text-yellow-400');
+            }
+        }, 8000);
+
+        // Lógica do Formulário -> WhatsApp
+        document.getElementById('hybridForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const otica = document.getElementById('otica').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            
+            const mensagem = `Olá! Acabei de preencher o formulário na página do Hybrid Vision.%0A%0A*Nome:* ${nome}%0A*Ótica:* ${otica}%0A*WhatsApp:* ${whatsapp}%0A%0AQuero garantir uma das últimas vagas com a condição de *30 dias de carência* e as cortesias!`;
+            
+            const waUrl = `https://wa.me/554174003872?text=${mensagem}`;
+            
+            // Simular "processamento" e redirecionar
+            this.innerHTML = '<div class="text-center py-10"><p class="font-900 text-orange-600 animate-pulse">RESERVANDO SUA VAGA...</p></div>';
+            
+            setTimeout(() => {
+                window.location.href = waUrl;
+            }, 1500);
+        });
+    </script>
+
+</body>
+</html>

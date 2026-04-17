@@ -3,396 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hybrid Vision | A Decisão que Muda sua Ótica</title>
+    <title>Hybrid Vision | Exclusividade Uplab Laboratory</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-   <style>
-:root {
-    --hybrid-orange: #FF6B00;
-    --hybrid-orange-soft: rgba(255,107,0,0.15);
-    --hybrid-dark: #050505;
-    --hybrid-gray: #a1a1aa;
-}
-
-/* BASE */
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle at top, #0a0a0a, #050505 60%);
-    color: #fff;
-    scroll-behavior: smooth;
-}
-
-/* TIPOGRAFIA */
-.font-orbitron {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 0.05em;
-}
-
-.text-gradient {
-    background: linear-gradient(120deg, #fff, var(--hybrid-orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* SECTIONS MAIS RESPIRADAS */
-section {
-    position: relative;
-    overflow: hidden;
-}
-
-/* GLASS PREMIUM (MUITO MELHOR) */
-.glass {
-    background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 
-        inset 0 0 0 1px rgba(255,255,255,0.02),
-        0 20px 60px rgba(0,0,0,0.6);
-    transition: all 0.4s ease;
-}
-
-.glass:hover {
-    border-color: var(--hybrid-orange-soft);
-    transform: translateY(-6px);
-}
-
-/* GLOW MAIS FORTE */
-.orange-glow {
-    box-shadow: 
-        0 0 0 1px rgba(255,107,0,0.2),
-        0 20px 80px rgba(255,107,0,0.15);
-}
-
-/* BOTÃO PREMIUM */
-button {
-    position: relative;
-    overflow: hidden;
-}
-
-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: all 0.6s;
-}
-
-button:hover::after {
-    left: 100%;
-}
-
-/* INPUT MELHOR */
-.input-premium {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 16px;
-    color: #fff;
-    width: 100%;
-    font-weight: 600;
-    transition: all 0.25s ease;
-}
-
-.input-premium::placeholder {
-    color: #71717a;
-}
-
-.input-premium:focus {
-    border-color: var(--hybrid-orange);
-    background: rgba(255,255,255,0.06);
-    box-shadow: 0 0 0 2px rgba(255,107,0,0.2);
-    outline: none;
-}
-
-/* URGÊNCIA MELHOR */
-@keyframes pulse-red {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.08); opacity: 0.75; }
-}
-
-.pulse-urgency {
-    animation: pulse-red 1.6s infinite;
-}
-
-/* FLOAT SUAVE */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-18px); }
-}
-
-.floating {
-    animation: float 6s ease-in-out infinite;
-}
-
-/* BACKGROUND DECORATIVO */
-section::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--hybrid-orange-soft), transparent 70%);
-    filter: blur(80px);
-    opacity: 0.4;
-    z-index: 0;
-}
-
-section:nth-child(even)::before {
-    top: -100px;
-    right: -100px;
-}
-
-section:nth-child(odd)::before {
-    bottom: -100px;
-    left: -100px;
-}
-
-/* TEXTO MAIS LEGÍVEL */
-p {
-    line-height: 1.7;
-}
-
-/* CARD HOVER MAIS PREMIUM */
-.card-hover {
-    transition: all 0.4s ease;
-}
-
-.card-hover:hover {
-    transform: translateY(-8px) scale(1.02);
-}
-
-/* PREÇO MAIS IMPACTANTE */
-.price-highlight {
-    text-shadow: 0 0 30px rgba(255,107,0,0.4);
-}
-
-/* VÍDEO MAIS BONITO */
-video {
-    filter: contrast(1.05) brightness(0.95);
-}
-
-/* SCROLL SUAVE */
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255,107,0,0.4);
-    border-radius: 10px;
-}
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --orange: #FF6B00; --dark: #050505; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+        .btn-main { background: var(--orange); box-shadow: 0 0 30px rgba(255, 107, 0, 0.3); transition: 0.3s; cursor: pointer; text-align: center; }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 107, 0, 0.5); }
+        
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .blink { animation: blink 1s infinite; }
+        
+        .floating-notif { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 10px 20px; border-radius: 50px; font-weight: 900; font-size: 12px; display: none; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        .animate-in { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-    <!-- BARRA DE URGÊNCIA REAL -->
-    <div class="fixed top-0 w-full z-[100] bg-red-600 text-white py-2 px-4 text-center text-[10px] font-black uppercase tracking-[0.2em]">
-        ⚠️ Atenção: <span id="vagas-count" class="pulse-urgency">20</span> vagas restantes para ativação imediata (Válido até 30/04)
+    <div id="notif" class="floating-notif">🚀 <span id="notif-text"></span></div>
+
+    <div class="fixed top-0 w-full z-[100] bg-red-600 text-white py-2 text-center text-[10px] font-black uppercase tracking-[0.2em]">
+        🔥 ÚLTIMAS <span id="vagas-count" class="blink">--</span> VAGAS: BÔNUS DE VOUCHER VÁLIDO ATÉ 30/04
     </div>
 
-    <!-- HERO: A DOR -->
     <section class="relative pt-32 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="font-orbitron font-900 text-4xl md:text-6xl italic leading-none uppercase mb-8">
-                SUA ÓTICA ESTÁ <span class="text-red-600">MORRENDO</span><br>
-                NO PASSADO?
-            </h1>
-            <p class="text-zinc-400 text-lg md:text-xl font-bold max-w-3xl mx-auto leading-relaxed mb-12">
-                Enquanto você tenta convencer o cliente com tabelas de papel, ele já está pesquisando no Google por <span class="text-white">experiência e tecnologia</span>. Se você não entrega o futuro, você é apenas "mais uma" ótica de bairro.
-            </p>
-            
-            <div class="relative max-w-4xl mx-auto rounded-[32px] overflow-hidden border border-orange-600/30 orange-glow shadow-2xl">
-                <video autoplay muted loop playsinline class="w-full">
-                    <source src="VIDEO COMPLETO S AUDIO.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                    <p class="text-white font-900 italic uppercase text-sm md:text-xl">O Sistema que transforma o balcão em um laboratório de precisão.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUÇÃO: O PORQUÊ DO HYBRID -->
-    <section class="py-24 px-6 bg-zinc-950/50">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative order-2 md:order-1">
-                <img src="TELA-HYBRID.png" class="w-full floating drop-shadow-[0_30px_60px_rgba(255,107,0,0.15)]">
-            </div>
-            <div class="order-1 md:order-2">
-                <h2 class="font-orbitron font-900 text-3xl md:text-5xl italic uppercase leading-none mb-8">
-                    POR QUE ASSINAR <span class="text-orange-600">O HYBRID HOJE?</span>
-                </h2>
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">🎯</div>
-                        <div>
-                            <h3 class="font-900 uppercase italic text-lg mb-2">Diferenciação Instantânea</h3>
-                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">O cliente vê a lente sendo construída na frente dele. Isso gera confiança e justifica o ticket médio alto.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">💎</div>
-                        <div>
-                            <h3 class="font-900 uppercase italic text-lg mb-2">O Voucher que Paga a Conta</h3>
-                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">Cada pedido bonificado paga sua mensalidade. O investimento é irrisório perto do faturamento que ele gera.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <div class="bg-orange-600/20 p-4 rounded-2xl text-orange-500 h-fit">📊</div>
-                        <div>
-                            <h3 class="font-900 uppercase italic text-lg mb-2">Lucro Real e Transparente</h3>
-                            <p class="text-zinc-400 font-bold text-sm leading-relaxed">Trabalhe com margens de 178% ou mais. Entregue luxo, receba como luxo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DESEJO: A ENTREGA -->
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="font-orbitron font-900 text-3xl md:text-5xl italic uppercase mb-16">NÃO É SÓ SOFTWARE,<br><span class="text-orange-600">É UM ATENDIMENTO DE QUALIDADE.</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
-                    <img src="foto da caixa 1.png" class="h-40 mx-auto mb-6 object-contain">
-                    <h4 class="font-900 uppercase italic mb-2">Box Premium</h4>
-                    <p class="text-zinc-500 text-xs font-bold">O impacto visual começa na entrega.</p>
-                </div>
-                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
-                    <img src="certificado-pvc.png" class="h-40 mx-auto mb-6 object-contain">
-                    <h4 class="font-900 uppercase italic mb-2">Certificado PVC</h4>
-                    <p class="text-zinc-500 text-xs font-bold">Garantia que o cliente guarda na carteira.</p>
-                </div>
-                <div class="glass p-8 rounded-[32px] hover:border-orange-500/40 transition-all">
-                    <img src="flanela.png" class="h-40 mx-auto mb-6 object-contain">
-                    <h4 class="font-900 uppercase italic mb-2">Flanela Hybrid</h4>
-                    <p class="text-zinc-500 text-xs font-bold">O toque final de exclusividade.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- VALOR + PREÇO -->
-<section class="py-24 px-6 bg-black border-t border-orange-600/20">
-    <div class="max-w-5xl mx-auto text-center">
-
-        <h2 class="font-orbitron font-900 text-3xl md:text-5xl italic uppercase mb-10">
-            QUANTO CUSTA NÃO EVOLUIR?
-        </h2>
-
-        <p class="text-zinc-400 font-bold max-w-3xl mx-auto mb-12">
-            Uma única venda perdida por falta de tecnologia já paga meses do Hybrid.
-            Aqui você não paga por um sistema… você paga por posicionamento, autoridade e lucro.
-        </p>
-
-        <div class="glass p-10 rounded-[32px] border border-orange-600/30 orange-glow">
-
-            <p class="text-zinc-500 text-sm line-through mb-2">
-                Valor tradicional de implantação + sistema
-            </p>
-
-            <p class="text-5xl md:text-7xl font-orbitron font-900 text-orange-600 mb-4">
-                R$ 299
-            </p>
-
-            <p class="text-white font-black uppercase tracking-widest text-sm mb-6">
-                POR MÊS • CONTRATO DE 12 MESES
-            </p>
-
-            <p class="text-zinc-400 text-sm max-w-xl mx-auto mb-10">
-                Menos que o lucro de uma única lente premium.
-                Mais poderoso que qualquer argumento de venda.
-            </p>
-
-            <div class="bg-orange-600/10 border border-orange-500/30 p-6 rounded-2xl mb-8">
-                <p class="font-900 uppercase text-orange-500 mb-2">
-                    🎁 ASSINE HOJE E RECEBA:
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate-in">
+                <img src="logo-uplab-estatica.jpg" class="h-12 mb-8 grayscale brightness-200">
+                <h1 class="font-orbitron font-900 text-4xl md:text-6xl italic leading-none mb-6">
+                    A EVOLUÇÃO CHEGOU NO <span class="text-orange-600">BALCÃO.</span>
+                </h1>
+                <p class="text-zinc-400 text-lg md:text-xl font-bold mb-8 leading-relaxed">
+                    A tecnologia <span class="text-white italic">HybridVision</span> permite 1.728 combinações independentes para superar qualquer multifocal do mercado.
                 </p>
-
-                <ul class="text-sm text-zinc-300 font-bold space-y-2">
-                    <li>✔ 12 Vouchers Bonificados</li>
-                    <li>✔ 01 Par de Lentes na Adesão</li>
-                    <li>✔ Tablet Lenovo 10.1" (Opcional)</li>
-                    <li>✔ Kit Premium (Caixa + Certificado + Flanela)</li>
-                </ul>
+                <a href="#contato" class="btn-main px-8 py-5 rounded-xl font-orbitron font-900 text-lg italic uppercase inline-block">Quero os 12 Vouchers</a>
             </div>
-
-            <p class="text-red-500 font-black uppercase text-xs tracking-widest pulse-urgency">
-                ⚠️ CONDIÇÃO VÁLIDA APENAS PARA AS VAGAS RESTANTES
-            </p>
-
-        </div>
-    </div>
-</section>
-    <!-- FORMULÁRIO DE CONVERSÃO -->
-    <section id="form-sessao" class="py-24 px-6 bg-white text-black">
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="font-orbitron font-900 text-4xl italic uppercase leading-none mb-6">ÚLTIMAS <span class="text-orange-600">5 VAGAS</span></h2>
-                <p class="text-zinc-600 font-bold text-lg mb-8">Com a condição especial: <br><span class="text-black font-900">ASSINE HOJE E PAGUE EM 30 DIAS.</span></p>
-                <div class="space-y-4">
-                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> 12 Vouchers Bonificados</p>
-                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> 01 Par de Lentes na Adesão</p>
-                    <p class="flex items-center gap-3 font-bold text-sm"><span>✅</span> Tablet Lenovo 10.1" (Opcional)</p>
-                </div>
-            </div>
-            
-            <div class="bg-zinc-50 p-8 rounded-[32px] border border-zinc-200 shadow-2xl">
-                <h3 class="text-center font-900 uppercase italic mb-8">Garanta sua Vaga Agora</h3>
-                <form id="hybridForm" class="space-y-4">
-                    <input type="text" id="nome" placeholder="Seu Nome Completo" required class="input-premium !text-black !bg-white !border-zinc-200">
-                    <input type="text" id="otica" placeholder="Nome da sua Ótica" required class="input-premium !text-black !bg-white !border-zinc-200">
-                    <input type="tel" id="whatsapp" placeholder="Seu WhatsApp (com DDD)" required class="input-premium !text-black !bg-white !border-zinc-200">
-                    
-                    <button type="submit" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-orbitron font-900 py-5 rounded-xl text-xl uppercase italic tracking-widest transition-all shadow-xl hover:scale-[1.02] active:scale-95">
-                        QUERO SER HYBRID
-                    </button>
-                    <p class="text-center text-[9px] text-zinc-400 font-bold uppercase mt-4">Ao clicar, você será direcionado para o atendimento prioritário.</p>
-                </form>
+            <div class="relative animate-in" style="animation-delay: 0.2s">
+                <img src="GIF HYBRID.gif" class="w-full rounded-3xl shadow-2xl border border-white/10">
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-16 text-center opacity-40">
-        <img src="LOGO-HYBRID-ESTATICO.png" class="h-4 mx-auto mb-6 grayscale brightness-0 invert">
-        <p class="text-[9px] font-black uppercase tracking-[0.4em] italic">Hybrid Vision © 2026 • Tecnologia Alemã • Curitiba-PR</p>
+    <section class="py-24 px-6 bg-zinc-950/50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-orbitron text-3xl md:text-5xl text-center mb-16 italic uppercase">A Evolução dos <span class="text-orange-600">Multifocais</span></h2>
+            <div class="space-y-8">
+                <div class="glass p-6 opacity-40">
+                    <span class="text-orange-600 font-black">1951</span>
+                    <h3 class="text-xl font-black uppercase">Convencionais</h3>
+                    <p class="text-sm">Tecnologia analógica de moldes fixos.</p>
+                </div>
+                <div class="glass p-6 opacity-40">
+                    <span class="text-orange-600 font-black">1998</span>
+                    <h3 class="text-xl font-black uppercase">Freeform Digital</h3>
+                    <p class="text-sm">Desenhos integrados e engessados há mais de 20 anos.</p>
+                </div>
+                <div class="glass p-8 border-l-4 border-orange-600 bg-orange-600/5">
+                    <span class="text-orange-600 font-black">2021 - HOJE</span>
+                    <h3 class="text-2xl font-black uppercase text-white">TECNOLOGIA HYBRID</h3>
+                    <p class="text-zinc-300 font-bold leading-relaxed">Divisão da lente em 3 partes independentes. O mapeamento visual via Tablet ou VR cria a lente perfeita para o estilo de vida do usuário.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto glass p-8 md:p-16 border-orange-600/20">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="TABLET.webp" class="w-full drop-shadow-[0_0_50px_rgba(255,107,0,0.2)]">
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-white/5 rounded-xl">
+                            <p class="text-[10px] uppercase text-zinc-500 font-black">Mercado Livre</p>
+                            <p class="text-xl font-bold line-through">R$ 900,00</p>
+                        </div>
+                        <div class="text-center p-4 bg-orange-600/20 rounded-xl border border-orange-600/50">
+                            <p class="text-[10px] uppercase text-orange-500 font-black">Na Uplab</p>
+                            <p class="text-xl font-black">R$ 600,00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="font-orbitron text-4xl font-900 mb-6 uppercase italic leading-tight">TECNOLOGIA NA <br><span class="text-orange-600">PALMA DA MÃO</span></h2>
+                    <p class="text-zinc-400 font-bold mb-6 italic">Não tem Tablet Android na ótica? A Uplab subsidia o Lenovo Tab 10.1 para você não perder venda.</p>
+                    <ul class="space-y-4 font-black text-xs text-orange-500 uppercase">
+                        <li>● Demonstração visual de campos de visão</li>
+                        <li>● Comparativo de espessuras em tempo real</li>
+                        <li>● Upgrade automático de ticket médio</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-orange-600">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-orbitron text-4xl md:text-6xl font-900 mb-12 italic uppercase text-white leading-none">CONDIÇÃO <br>DE PARCEIRO</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-black/20 p-8 rounded-3xl border border-white/20 text-white">
+                    <h4 class="font-black text-xl mb-4 uppercase">Licença Mensal</h4>
+                    <p class="text-6xl font-orbitron mb-2">R$ 299</p>
+                    <p class="text-xs font-black tracking-widest opacity-70">CONTRATO DE 12 MESES</p>
+                </div>
+                <div class="bg-white text-black p-8 rounded-3xl shadow-2xl">
+                    <h4 class="font-black text-xl mb-6 text-orange-600 italic underline uppercase">Pacote de Benefícios:</h4>
+                    <ul class="space-y-4 font-bold text-sm">
+                        <li>✅ 12 Vouchers mensais para bonificação</li>
+                        <li>✅ 10 Vouchers de 20% OFF em pedidos Hybrid</li>
+                        <li>✅ 1ª Lente de ativação 100% CORTESIA</li>
+                        <li>✅ Treinamento de conversão para o balcão</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mt-12 text-[10px] font-black uppercase text-white/60 tracking-[0.2em]">*Consulte regras para 1.67 Transitions e família 1.74</p>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-zinc-900/30">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="font-orbitron text-center text-xl mb-12 opacity-50 uppercase italic tracking-widest italic">Ecossistema Hybrid: Óticas Habilitadas</h3>
+            <div id="gridOticas" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 px-6 bg-white text-black">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="font-orbitron font-900 text-4xl mb-4 italic uppercase">SOLICITAR HABILITAÇÃO</h2>
+            <p class="font-bold text-zinc-500 uppercase text-xs tracking-widest">Preencha para receber o contato do comercial Uplab</p>
+        </div>
+        <div class="max-w-2xl mx-auto">
+            <form id="hybridForm" class="space-y-4">
+                <input type="text" id="nome" placeholder="Seu Nome / Cargo" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
+                <input type="text" id="otica" placeholder="Nome da Ótica" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
+                <input type="tel" id="whatsapp" placeholder="WhatsApp (DDD)" required class="w-full p-5 rounded-xl border-2 border-zinc-200 outline-none focus:border-orange-600 font-bold transition-all">
+                <button type="submit" class="w-full bg-orange-600 text-white font-orbitron font-900 py-6 rounded-xl text-2xl uppercase italic btn-main">Garantir Minha Vaga</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center opacity-30 text-[9px] font-black uppercase tracking-[0.5em]">
+        UPLAB LABORATORY • CNPJ 12.345.678/0001-00 • CURITIBA-PR
     </footer>
 
     <script>
-        // Simulação de contador de vagas dinâmico
-        let vagas = 20;
-        const countEl = document.getElementById('vagas-count');
-        
-        setInterval(() => {
-            if (vagas > 5 && Math.random() > 0.8) {
-                vagas--;
-                countEl.innerText = vagas;
-                if(vagas <= 5) countEl.classList.add('text-yellow-400');
-            }
-        }, 8000);
+        async function carregarDados() {
+            try {
+                // Busca o arquivo JSON real no seu repositório
+                const response = await fetch('dados.json');
+                const dados = await response.json();
+                
+                // Atualiza vagas
+                document.getElementById('vagas-count').innerText = dados.vagas_restantes;
 
-        // Lógica do Formulário -> WhatsApp
+                // Alimenta o Grid de Óticas (Prova Real)
+                const grid = document.getElementById('gridOticas');
+                grid.innerHTML = '';
+                dados.vendas.forEach(v => {
+                    grid.innerHTML += `
+                        <div class="glass !bg-zinc-800/40 p-5 text-center rounded-2xl border border-white/5 animate-in">
+                            <p class="font-black text-[11px] uppercase text-orange-500 mb-1">${v.otica}</p>
+                            <p class="text-[9px] opacity-60 font-bold uppercase">${v.cidade} - ${v.estado}</p>
+                            <p class="text-[8px] opacity-30 mt-2 font-medium italic">Ativado em: ${v.data}</p>
+                        </div>
+                    `;
+                });
+
+                // Notificação Flutuante da última venda
+                const ultimaVenda = dados.vendas[0];
+                if(ultimaVenda) {
+                    const notif = document.getElementById('notif');
+                    document.getElementById('notif-text').innerText = `${ultimaVenda.otica} (${ultimaVenda.cidade}) acaba de assinar!`;
+                    setTimeout(() => {
+                        notif.style.display = 'block';
+                    }, 4000);
+                }
+
+            } catch (e) {
+                console.error("Erro ao ler dados.json. Verifique se o arquivo existe na raiz.", e);
+            }
+        }
+
+        // Envio do WhatsApp
         document.getElementById('hybridForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const nome = document.getElementById('nome').value;
-            const otica = document.getElementById('otica').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            
-            const mensagem = `Olá! Acabei de preencher o formulário na página do Hybrid Vision.%0A%0A*Nome:* ${nome}%0A*Ótica:* ${otica}%0A*WhatsApp:* ${whatsapp}%0A%0AQuero garantir uma das últimas vagas com a condição de *30 dias de carência* e as cortesias!`;
-            
-            const waUrl = `https://wa.me/554174003872?text=${mensagem}`;
-            
-            // Simular "processamento" e redirecionar
-            this.innerHTML = '<div class="text-center py-10"><p class="font-900 text-orange-600 animate-pulse">RESERVANDO SUA VAGA...</p></div>';
-            
-            setTimeout(() => {
-                window.location.href = waUrl;
-            }, 1500);
+            const n = document.getElementById('nome').value;
+            const o = document.getElementById('otica').value;
+            const w = document.getElementById('whatsapp').value;
+            const msg = `Olá! Vi que restam poucas vagas para o HybridVision e quero habilitar minha ótica.%0A%0A*Ótica:* ${o}%0A*Responsável:* ${n}%0A*WhatsApp:* ${w}`;
+            window.location.href = `https://wa.me/554174003872?text=${msg}`;
         });
-    </script>
 
+        // Inicia a carga dos dados reais
+        carregarDados();
+    </script>
 </body>
 </html>
